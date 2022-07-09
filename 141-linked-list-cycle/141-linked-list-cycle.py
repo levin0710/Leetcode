@@ -6,15 +6,17 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        node1 = head
-        node2 = head
+        one = head
+        two = head
         
-        while node1 is not None and node2 is not None and node2.next is not None:
-            node1 = node1.next
-            node2 = node2.next.next
-            if node1 == node2:
+        while one is not None and two is not None:
+            one = one.next
+            two = two.next
+            if two is None:
+                return False
+            two = two.next
+            
+            if one is two:
                 return True
-            
-            
         return False
         
