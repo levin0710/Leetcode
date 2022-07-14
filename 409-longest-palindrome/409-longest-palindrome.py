@@ -1,14 +1,14 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        letters = set()
+        hashset = set()
         
         for letter in s:
-            if letter in letters:
-                letters.remove(letter)
+            if letter not in hashset:
+                hashset.add(letter)
             else:
-                letters.add(letter)
-                
-        if len(letters) == 0:
+                hashset.remove(letter)
+        
+        if len(hashset) == 0:
             return len(s)
-        return  len(s) - len(letters) + 1
-            
+        
+        return len(s) - len(hashset) + 1
