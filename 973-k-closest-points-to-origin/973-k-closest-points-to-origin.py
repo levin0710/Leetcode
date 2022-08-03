@@ -3,7 +3,4 @@ class Solution:
         
         answer = []     
         points.sort(key=lambda x: sqrt(pow(x[0], 2) + pow(x[1], 2)) )
-        
-        for i in range(k):
-            answer.append(points[i])
-        return answer
+        return points[:k]
