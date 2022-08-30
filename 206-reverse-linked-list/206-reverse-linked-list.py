@@ -14,4 +14,3 @@ class Solution:
             node.next = prev
             prev = node
         return prev
-            
