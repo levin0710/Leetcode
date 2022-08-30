@@ -8,13 +8,11 @@ class Solution:
         slow = head
         fast = head
         
-        while fast is not None:
-            
-            
+        while fast is not None and fast.next is not None:
+            slow = slow.next
             fast = fast.next
+            
             if fast is None:
                 break
             fast = fast.next
-            slow = slow.next
         return slow
-            
