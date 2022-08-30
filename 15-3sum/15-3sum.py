@@ -2,23 +2,19 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         answer = []
-        triplets = set()
-        
         for i in range(len(nums) - 2):
             left = i + 1
             right = len(nums) - 1
-            
-            num = nums[i]
-            
-            while left < right:
-                sumation = num + nums[left] + nums[right]
-                array = [num, nums[left], nums[right]]
-                if sumation == 0:
-                    if array not in answer:
-                        answer.append(array)
+        
+            while left < right:    
+                if nums[i] + nums[left] + nums[right] == 0:
+                    arr = [nums[i], nums[left], nums[right]]
+                    if arr not in answer:
+                         answer.append(arr)
+                    right -= 1
+                elif nums[i] + nums[left] + nums[right] < 0:
                     left += 1
-                elif sumation < 0:
-                    left += 1
-                elif sumation > 0:
+                else:
                     right -= 1
         return answer
+            
